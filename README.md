@@ -1,4 +1,4 @@
-# *Bankomat C++
+# **Bankomat C++**
 
 Program napisany w języku C++.
 
