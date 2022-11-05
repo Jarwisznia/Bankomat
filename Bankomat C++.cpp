@@ -35,6 +35,7 @@ void pokaz_stan_konta(const dane_logowania *uzytkownik);
 void wyslij_przelew(dane_logowania *uzytkownik);
 void wez_kredyt(const kredyt *promocyjny);
 void zaloz_lokate (const lokata *rodzaj);
+void zaplac_blikiem ();
 void zmien_haslo(dane_logowania *uzytkownik);
 void wyloguj();
 void wplata(dane_logowania * uzytkownik);
@@ -158,6 +159,19 @@ void zaloz_lokate (const lokata *rodzaj)
     else cout << "Wpisano nie poprawna wartosc w co najmniej jednym polu!" << endl;
 }
 
+void zaplac_blikiem ()
+{
+    unsigned int blik, num1, num2;
+    cout << "Nacisnij ENTER aby wygnerowac kod blik";
+    cin.sync(); //w celu oproznienia bufora strumienia z pozostalosci
+    cin.get();
+    //ze wzgledu na ograniczony zakres fukcji rand() uzywam dwoch zmiennych
+    num1 = rand()%899+100;
+    num2 = rand()%1000;
+    blik = 1000 * num1 + num2;
+    cout << "Twoj kod blik to: " <<blik << endl;
+}
+
 void zmien_haslo(dane_logowania * uzytkownik)
 {
     string haslo_wpisane;
@@ -221,9 +235,10 @@ void menu(dane_logowania *uzytkownik, kredyt *promocyjny, lokata *rodzaj)
         cout << "2.WYSLIJ PRZELEW" << endl;
         cout << "3.WEZ KREDYT" << endl;
         cout << "4.ZALOZ LOKATE OSZCZEDNOSCIOWA" << endl;
-        cout << "5.ZMIEN HASLO" << endl;
-        cout << "6.WYLOGUJ" << endl;
-        cout << "7.WPLAC" << endl;
+        cout << "5.ZAPLAC BLIKIEM" << endl;
+        cout << "6.ZMIEN HASLO" << endl;
+        cout << "7.WYLOGUJ" << endl;
+        cout << "8.WPLAC" << endl;
 
         srand(time(NULL));
         wybor=getch();
@@ -248,14 +263,18 @@ void menu(dane_logowania *uzytkownik, kredyt *promocyjny, lokata *rodzaj)
             break;
 
             case '5':
-                 zmien_haslo(uzytkownik);
+                zaplac_blikiem();
             break;
 
             case '6':
-                 wyloguj();
+                 zmien_haslo(uzytkownik);
             break;
 
             case '7':
+                 wyloguj();
+            break;
+
+            case '8':
                  wplata(uzytkownik);
             break;
 
