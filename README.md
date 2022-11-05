@@ -1,8 +1,8 @@
-# **Bankomat**
+# **Bankomat Cpp**
 
 Program napisany w języku C++.
 
-**Funckje bankowości online dostępne w programie:**
+**Funkcjonalności bankowości online dostępne w programie:**
 1. POKAZ STAN KONTA
 2. WYSLIJ PRZELEW
 3. WEZ KREDYT
