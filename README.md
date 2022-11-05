@@ -1,2 +1,2 @@
 # Bankomat
-Program napisany w języku C++
+Program napisany w języku C++ z wybranymi funkcjami imitującymi zachowanie bankomatu
